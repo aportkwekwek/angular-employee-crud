@@ -1,0 +1,68 @@
+<div class="">
+    <main>
+      <app-header></app-header>
+
+ 
+        <div class="container" style="margin-right:25vh;">
+            <a (click)="addEmployee()" class="btn"><span class="btn btn-primary" style="text-align: justify;"><i class=" icon-user"></i> Add Employee</span></a>
+                           
+            <table class="table" style="margin-top:20px;">
+                <thead>
+                  <tr>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Job Title</th>
+                    <th scope="col">Access Level</th>
+                    <th scope="col">Birth Date</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let employee of employees;index as i;">
+                    <td scope="row">{{employee.lastname}}</td>
+                    <td>{{employee.firstname}}</td>
+                    <td>{{employee.email}}</td>
+                    <td>{{employee.age}}</td>
+                    <td>{{employee.job_title}}</td>
+                    
+                    <ng-template [ngIf]="employee.access_level_id === 1"><td>Super User</td> </ng-template>
+                    <ng-template [ngIf]="employee.access_level_id === 2"><td>User</td></ng-template>
+                    <td>{{employee.birth_date | date:'MMMM dd, yyyy'}}</td>
+                    <td>
+                        <span class="btn btn-primary" style="margin-right:4px;" #empEdit (click)="editEmployee(empEdit)" attr.data-employee-id-edit='{{employee.email}}' >
+                            <i class="icon-edit"></i>
+                        </span>
+                        
+                        <span class="btn btn-danger" id="{{employee.password}}" #empDelete (click)="deleteEmployee(empDelete, content)" attr.data-employee-id-delete='{{ employee.email}}' >
+                            <i class="icon-trash"></i>
+                        </span>
+                       
+
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+    </main>
+</div>
+
+
+                          
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">System Confirmation</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to delete {{ nameOfUser }}</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="confirmDelete()">Yes</button>
+    <button type="button" class="btn btn-outline-dark" (click)="c('Cross click')">No</button>
+  </div>
+</ng-template>

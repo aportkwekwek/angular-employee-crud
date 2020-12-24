@@ -1,11 +1,25 @@
 import { browser, by, element } from 'protractor';
 
-export class AppPage {
-  async navigateTo(): Promise<unknown> {
-    return browser.get(browser.baseUrl);
+export class AppDashboard {
+
+  getBrowser() {
+    return browser;
   }
 
-  async getTitleText(): Promise<string> {
-    return element(by.css('app-root .content span')).getText();
+  navigateTo() {
+    return browser.get('/');
+  }
+
+  getParagraphText() {
+    return element(by.xpath('/html/body/app-dashboard/div/main/div/ng-component/div/div[2]/div[1]/div[1]/div[1]/h4')).getText();
+  }
+  getBody() {
+    return element(by.xpath('/html/body'));
+  }
+  getByCss(selector:any) {
+    return element.all(by.css(selector));
+  }
+  getFooterText() {
+    return element(by.className('app-footer')).getText();
   }
 }

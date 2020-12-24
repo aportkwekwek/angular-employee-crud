@@ -1,0 +1,36 @@
+<div class="">
+    <main>
+        <div class="jumbotron">
+            <h1>Web Developer Examination</h1>
+            <p>by Ron Erick Rodriguez</p>
+        </div>
+        <div class="container" style="text-align: center;">
+            <h1>Edit Employee</h1>
+            <p>Editing {{email}}</p>
+        </div>
+
+        <div class="container" style="margin-top:30px;">
+            <form [formGroup]="form" (ngSubmit)="update()" *ngFor="let employee of employee" >
+            
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="input-group mb-3">
+                        <input formControlName="firstname" type="text" class="form-control" placeholder="First Name" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="input-group mb-3">
+                        <input formControlName="lastname" type="text" class="form-control" placeholder="First Name" required>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <button class="btn btn-primary" type="submit">Edit</button>
+
+            
+            </form>
+        </div>
+       
+    </main>
+</div>

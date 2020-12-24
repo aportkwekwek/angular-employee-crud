@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+    font-family: sans-serif;
+    line-height: 1.15;
+    -webkit-tap-highlight-color: transparent;
+}
+body{
+    margin:0;
+    padding:0;
+    font-size:0.78rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color:#32353f;
+    text-align: left;
+    background-color: #b1b3b896;
+}
+
+
+.app{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    margin-top:15vh;
+}
+
+.app-body .main{
+
+    flex:1;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    min-width: 0;
+}
+
+.d-flex{
+    display: flex !important;
+
+}
+
+.align-items-center{
+    align-items: center !important;
+}
